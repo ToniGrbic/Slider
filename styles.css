@@ -1,35 +1,59 @@
+@font-face {
+    font-family: SourceSansPro;
+    src: url('./assets/SourceSansPro-Regular.otf');
+}
+
 *{
     padding:0px;
     margin:0px;
+    font-family: SourceSansPro;
+    --blue-color: #134880;
+    --background-color: #F2F2F2
+}
+
+h1{
+    color: var(--blue-color);
+    display:inline-block;
+    line-height:37.5px;
+    margin-bottom:10px;
+}
+
+p{
+    font-size:18px;
+    line-height:26px;
 }
 body{
     width:100%;
     height:100vh;
-    background: #F2F2F2;
+    background:var(--background-color);
 }
 .container{
     display:flex;
     height:100%;
-    //justify-content:center;
+    position:relative;
     align-items:center;
 }
 
-.sliderContainer{
-    width:60%;
-    height:250px;
-    overflow: hidden;
-    margin-right:40px;
-}
-
 .imageSlider{
+    width:40%;
+    height:420px;
+    margin-right:40px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow: hidden;
+} 
+
+.imageSlider div{
     display:flex;
     justify-content:flex-end;
-    transition: all 0.2s;
+    transition: all 0.5s;
 }
 .description{
-    width:200px;
+    width:300px;
+    height:400px;
     margin-left:30px;
-}
+} 
 
 .btnContainer{
     height:130px;
@@ -58,7 +82,7 @@ button img{
 button{
     height:60px;
     width:60px;
-    border: 1px solid #134880;
+    border: 1px solid var(--blue-color);
     border-radius: 5px;
 }
 
