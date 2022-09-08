@@ -82,10 +82,15 @@ button img{
 button{
     height:60px;
     width:60px;
-    border: 1px solid var(--blue-color);
+    border:1px solid var(--blue-color);
     border-radius: 5px;
 }
 
+button:disabled{
+    
+    border:1px solid gray;
+}
+
 button:hover{
-    background-color:#d7d7d9;
+    background-color:#bdbdbd;
 }

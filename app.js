@@ -2,9 +2,8 @@ const imageSliderTop = $('.topSlider')
 const imageSliderBottom = $('.bottomSlider')
 const sliderImagesTop = $('.topSlider img')
 const sliderImagesBottom = $('.bottomSlider img')
-const prevBtn = $('#prevBtn')
-const nextBtn = $('#nextBtn')
-
+const leftBtn = $('#leftBtn')
+const rightBtn = $('#rightBtn')
 const topImgCount = sliderImagesTop.length
 const bottomImgCount = sliderImagesBottom.length
 
@@ -26,9 +25,12 @@ const getBottomImgWidth = (counter)=>{
     return $(`#img-bottom-${counter}`).outerWidth() 
 }
 
-prevBtn.on('click',function(){
-    
-        direction = 'left'
+rightBtn.on('click',function(){
+
+        rightBtn.attr("disabled", "disabled")
+        $('#rightBtn img').attr('src', './assets/arrow-gray-right.png')
+
+        direction = 'right'
         let activeTopImgWidth = getTopImgWidth(counterTop)
         let activeBottomImgWidth = getBottomImgWidth(counterBottom)
 
@@ -48,9 +50,11 @@ prevBtn.on('click',function(){
         slide(activeTopImgWidth, activeBottomImgWidth)
 })
 
-nextBtn.on('click',function(){
+leftBtn.on('click',function(){
 
-        direction = 'right'
+        leftBtn.attr("disabled", "disabled")
+        $('#leftBtn img').attr('src', './assets/arrow-gray-left.png')
+        direction = 'left'
         
         if(counterTop === topImgCount  && counterBottom < bottomImgCount){
             counterTop = 1
@@ -73,11 +77,11 @@ nextBtn.on('click',function(){
 imageSliderBottom.on('transitionend', addImages)
 
 function addImages(){
-    if(direction === 'left'){
+    if(direction === 'right'){
         imageSliderTop.prepend($('.topSlider img:last-child'))
         imageSliderBottom.prepend($('.bottomSlider img:last-child'))
     }   
-    else if(direction === 'right') {
+    else if(direction === 'left') {
         imageSliderTop.append($(`.topSlider img:first-child` ))
         imageSliderBottom.append($('.bottomSlider img:first-child'))
     }
@@ -85,6 +89,11 @@ function addImages(){
     $('.imageSlider div').css('transform', `translateX(0px)`)
     setTimeout(()=>{
         $('.imageSlider div').css('transition', 'all 0.5s') 
-    }) 
-}
+    })
 
+    rightBtn.removeAttr("disabled")
+    leftBtn.removeAttr("disabled")
+
+    $('#rightBtn img').attr('src', './assets/arrow-blue-right.png')
+    $('#leftBtn img').attr('src', './assets/arrow-blue-left.png')
+}
