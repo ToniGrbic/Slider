@@ -35,15 +35,17 @@ body{
 }
 
 .imageSlider{
-    width:40%;
+    width:45%;
     margin-right:40px;
     display:flex;
     flex-direction:column;
     overflow: hidden;
 } 
 
-.bottomSlider{
-    width:100%;
+@media screen and (min-width: 1250px){
+    .imageSlider{
+        width:35%;
+    }
 }
 
 .imageSlider div{
@@ -71,11 +73,6 @@ body{
     margin:4px;
 }
 
-button img{
-    height:10px;
-    width:10px;
-}
-
 button{
     height:60px;
     width:60px;
@@ -92,14 +89,13 @@ button:hover{
 #leftBtn {
     background-image: url('./assets/arrow-gray-left.png'); 
 }
-#leftBtn:hover {
-    background-image: url('./assets/arrow-blue-left.png');
-}
-
 #rightBtn {
     background-image: url('./assets/arrow-gray-right.png'); 
-    
 }
+
 #rightBtn:hover {
     background-image: url('./assets/arrow-blue-right.png');
+}
+#leftBtn:hover {
+    background-image: url('./assets/arrow-blue-left.png');
 }

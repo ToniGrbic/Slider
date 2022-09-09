@@ -1,16 +1,17 @@
 const imageSliderTop = $('.topSlider')
 const imageSliderBottom = $('.bottomSlider')
-const sliderImagesTop = $('.topSlider img')
-const sliderImagesBottom = $('.bottomSlider img')
 const leftBtn = $('#leftBtn')
 const rightBtn = $('#rightBtn')
-const topImgCount = sliderImagesTop.length
-const bottomImgCount = sliderImagesBottom.length
+const topImgCount = $('.topSlider img').length
+const bottomImgCount = $('.bottomSlider img').length
 
 //counter prati koja slika je u fokusu, pomoću njega tu sliku selectamo
 let counterTop = topImgCount
 let counterBottom = bottomImgCount 
-let direction
+
+/*označava koji button je kliknut, 
+pomoću njega provjeravamo dali treba prependat ili appendat slike*/
+let direction 
 
 const slide = (slideWidthTop, slideWidthBottom)=>{
     imageSliderTop.css('transform', `translateX(${slideWidthTop}px)`)
@@ -26,6 +27,8 @@ const getBottomImgWidth = (counter)=>{
 }
 
 const slideToBegining = ()=>{
+    /*kada dodamo sliku nakon slide tranzicije 
+    želimo vratit poziciju na početak ali bez tranzicije*/
     $('.imageSlider div').css('transition', 'none')     
     $('.imageSlider div').css('transform', `translateX(0px)`)
     setTimeout(()=>{
@@ -36,10 +39,10 @@ const slideToBegining = ()=>{
 rightBtn.on('click',function(){
 
         rightBtn.attr("disabled", "disabled")
-        
         direction = 'right'
-        let activeTopImgWidth = getTopImgWidth(counterTop)
-        let activeBottomImgWidth = getBottomImgWidth(counterBottom)
+
+        let focusedTopImgWidth = getTopImgWidth(counterTop)
+        let focusedBottomImgWidth = getBottomImgWidth(counterBottom)
 
         if(counterTop === 1 && counterBottom > 1 ){
             counterTop = topImgCount
@@ -54,7 +57,7 @@ rightBtn.on('click',function(){
             --counterTop
             --counterBottom
         }
-        slide(activeTopImgWidth, activeBottomImgWidth)
+        slide(focusedTopImgWidth, focusedBottomImgWidth)
 })
 
 leftBtn.on('click',function(){
@@ -84,6 +87,7 @@ imageSliderBottom.on('transitionend', addImages)
 
 function addImages(){
     if(direction === 'right'){
+        //fokusiranu sliku za pojedini slider stavljamo na kraj
         imageSliderTop.prepend($('.topSlider img:last-child'))
         imageSliderBottom.prepend($('.bottomSlider img:last-child'))
 
@@ -91,6 +95,7 @@ function addImages(){
         rightBtn.removeAttr("disabled")
     }   
     else if(direction === 'left') {
+        //zadnju sliku za pojedini slider stavljamo na početak(desnu stranu)
         imageSliderTop.append($(`.topSlider img:first-child` ))
         imageSliderBottom.append($('.bottomSlider img:first-child'))
 
