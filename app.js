@@ -36,8 +36,7 @@ const slideToBegining = ()=>{
 rightBtn.on('click',function(){
 
         rightBtn.attr("disabled", "disabled")
-        $('#rightBtn img').attr('src', './assets/arrow-gray-right.png')
-
+        
         direction = 'right'
         let activeTopImgWidth = getTopImgWidth(counterTop)
         let activeBottomImgWidth = getBottomImgWidth(counterBottom)
@@ -61,7 +60,6 @@ rightBtn.on('click',function(){
 leftBtn.on('click',function(){
 
         leftBtn.attr("disabled", "disabled")
-        $('#leftBtn img').attr('src', './assets/arrow-gray-left.png')
         direction = 'left'
         
         if(counterTop === topImgCount  && counterBottom < bottomImgCount){
@@ -88,18 +86,16 @@ function addImages(){
     if(direction === 'right'){
         imageSliderTop.prepend($('.topSlider img:last-child'))
         imageSliderBottom.prepend($('.bottomSlider img:last-child'))
-        slideToBegining()
 
+        slideToBegining()
         rightBtn.removeAttr("disabled")
-        $('#rightBtn img').attr('src', './assets/arrow-blue-right.png')
     }   
     else if(direction === 'left') {
         imageSliderTop.append($(`.topSlider img:first-child` ))
         imageSliderBottom.append($('.bottomSlider img:first-child'))
-        slideToBegining() 
 
+        slideToBegining() 
         leftBtn.removeAttr("disabled")
-        $('#leftBtn img').attr('src', './assets/arrow-blue-left.png')
     }
 }
 

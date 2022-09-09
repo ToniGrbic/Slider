@@ -8,6 +8,7 @@
     margin:0px;
     font-family: SourceSansPro;
     --blue-color: #134880;
+    --gray-color: #DDDDDD;
     --background-color: #F2F2F2
 }
 
@@ -35,7 +36,6 @@ body{
 
 .imageSlider{
     width:40%;
-    height:420px;
     margin-right:40px;
     display:flex;
     flex-direction:column;
@@ -67,7 +67,6 @@ body{
 
 .imageSlider img{
     height:200px;
-    box-sizing:border-box;
     border-radius:5px;
     margin:4px;
 }
@@ -80,10 +79,27 @@ button img{
 button{
     height:60px;
     width:60px;
-    border:1px solid var(--blue-color);
+    border:1px solid var(--gray-color);
     border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-button:disabled{
-    border:1px  solid #DDDDDD;
+button:hover{
+    border:1px  solid var(--blue-color); 
+}
+
+#leftBtn {
+    background-image: url('./assets/arrow-gray-left.png'); 
+}
+#leftBtn:hover {
+    background-image: url('./assets/arrow-blue-left.png');
+}
+
+#rightBtn {
+    background-image: url('./assets/arrow-gray-right.png'); 
+    
+}
+#rightBtn:hover {
+    background-image: url('./assets/arrow-blue-right.png');
 }
