@@ -84,6 +84,7 @@ button{
 
 button:hover{
     border:1px  solid var(--blue-color); 
+    cursor:pointer;
 }
 
 #leftBtn {

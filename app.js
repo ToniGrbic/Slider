@@ -90,17 +90,14 @@ function addImages(){
         //fokusiranu sliku za pojedini slider stavljamo na kraj
         imageSliderTop.prepend($('.topSlider img:last-child'))
         imageSliderBottom.prepend($('.bottomSlider img:last-child'))
-
-        slideToBegining()
         rightBtn.removeAttr("disabled")
     }   
     else if(direction === 'left') {
-        //zadnju sliku za pojedini slider stavljamo na početak(desnu stranu)
+        //zadnju sliku za pojedini slider stavljamo na početak
         imageSliderTop.append($(`.topSlider img:first-child` ))
         imageSliderBottom.append($('.bottomSlider img:first-child'))
-
-        slideToBegining() 
         leftBtn.removeAttr("disabled")
     }
+    slideToBegining() 
 }
 
