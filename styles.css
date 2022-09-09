@@ -51,7 +51,13 @@ body{
 .imageSlider div{
     display:flex;
     justify-content:flex-end;
-    transition: all 0.5s;
+    transition: transform 0.5s;
+}
+
+.imageSlider img{
+    height:200px;
+    border-radius:5px;
+    margin:4px;
 }
 
 .description{
@@ -65,12 +71,6 @@ body{
     display:flex;
     flex-direction:column;
     justify-content: space-between;
-}
-
-.imageSlider img{
-    height:200px;
-    border-radius:5px;
-    margin:4px;
 }
 
 button{

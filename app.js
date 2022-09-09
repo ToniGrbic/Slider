@@ -32,7 +32,7 @@ const slideToBegining = ()=>{
     $('.imageSlider div').css('transition', 'none')     
     $('.imageSlider div').css('transform', `translateX(0px)`)
     setTimeout(()=>{
-        $('.imageSlider div').css('transition', 'all 0.5s') 
+        $('.imageSlider div').css('transition', 'transform 0.5s') 
     })
 }
 
