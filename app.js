@@ -36,9 +36,14 @@ const slideToBegining = ()=>{
     })
 }
 
+const disableBtns = ()=>{
+    rightBtn.attr("disabled", "disabled")
+    leftBtn.attr("disabled", "disabled")
+}
+
 rightBtn.on('click',function(){
 
-        rightBtn.attr("disabled", "disabled")
+        disableBtns()
         direction = 'right'
 
         let focusedTopImgWidth = getTopImgWidth(counterTop)
@@ -62,7 +67,7 @@ rightBtn.on('click',function(){
 
 leftBtn.on('click',function(){
 
-        leftBtn.attr("disabled", "disabled")
+        disableBtns()
         direction = 'left'
         
         if(counterTop === topImgCount  && counterBottom < bottomImgCount){
@@ -90,14 +95,14 @@ function addImages(){
         //fokusiranu sliku za pojedini slider stavljamo na kraj
         imageSliderTop.prepend($('.topSlider img:last-child'))
         imageSliderBottom.prepend($('.bottomSlider img:last-child'))
-        rightBtn.removeAttr("disabled")
     }   
     else if(direction === 'left') {
         //zadnju sliku za pojedini slider stavljamo na početak
         imageSliderTop.append($(`.topSlider img:first-child` ))
         imageSliderBottom.append($('.bottomSlider img:first-child'))
-        leftBtn.removeAttr("disabled")
     }
     slideToBegining() 
+    rightBtn.removeAttr("disabled")
+    leftBtn.removeAttr("disabled")
 }
 
