@@ -1,4 +1,7 @@
 import './scss/styles.scss'
+import './scss/content.scss'
+import './scss/header-footer.scss'
+
 const imageSliderTop = $('.topSlider')
 const imageSliderBottom = $('.bottomSlider')
 const leftBtn = $('#leftBtn')

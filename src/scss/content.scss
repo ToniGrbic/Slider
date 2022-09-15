@@ -1,0 +1,108 @@
+@mixin flex-direction-column{
+	display: flex;
+	flex-direction: column;
+}
+
+.appContainer{
+	height:100%;
+	@include flex-direction-column();
+	max-width: 940px;
+	margin: auto;
+}
+
+.contentContainer {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.imageSlider {
+	display: flex;
+	justify-content: flex-end;
+	
+	img {
+		height: 200px;
+		border-radius: 5px;
+		margin: 4px;
+	}
+}
+
+.sliderSection {
+	max-width: 620px;
+}
+
+.topSlider, .bottomSlider {
+	display: flex;
+	transition: transform 0.5s;
+}
+
+.description {
+	font-family: SourceSansPro;
+	@include flex-direction-column();
+	width: 300px;
+	height: 416px;
+    background-color: var(--background-color);
+    padding-left: 20px;
+	z-index:5;
+	overflow-y: auto;
+	overflow-x: hidden;
+	p {
+		font-size: 18px;
+		line-height: 26px;
+		letter-spacing: -0.2px;
+		color: var(--text-color);
+	}
+}
+
+.btnContainer {
+	height: 130px;
+	width: 160px;
+	@include flex-direction-column();
+	justify-content: space-between;
+	align-items: flex-end;
+	margin-top: 4px;
+}
+
+.btnSection {
+	z-index: 5;
+	background: var(--background-color);
+}
+
+#leftBtn {
+	background-image: url('../assets/arrow-gray-left.png');
+	&:hover {
+		background-image: url('../assets/arrow-blue-left.png');
+	}
+}
+
+#rightBtn {
+	background-image: url('../assets/arrow-gray-right.png');
+	&:hover {
+		background-image: url('../assets/arrow-blue-right.png');
+	}
+}
+
+@media screen and (max-width:820px){
+	.sliderSection {
+		max-width: 480px;
+	}
+	.description{
+		p{
+			font-size:15px !important;
+		}
+		h1{
+			font-size: 26px;
+		}
+	}
+}
+
+@media screen and (max-width:661px){
+	.sliderSection {
+		max-width: 400px;
+	}
+	.description{
+		max-width:200px;
+		min-width:124px;
+	}
+}
