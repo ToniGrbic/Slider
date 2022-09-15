@@ -1,3 +1,4 @@
+import './scss/styles.scss'
 const imageSliderTop = $('.topSlider')
 const imageSliderBottom = $('.bottomSlider')
 const leftBtn = $('#leftBtn')
@@ -40,14 +41,13 @@ const disableBtns = ()=>{
     rightBtn.attr("disabled", "disabled")
     leftBtn.attr("disabled", "disabled")
 }
-
 rightBtn.on('click',function(){
 
-        disableBtns()
-        direction = 'right'
-
-        let focusedTopImgWidth = getTopImgWidth(counterTop)
-        let focusedBottomImgWidth = getBottomImgWidth(counterBottom)
+    disableBtns()
+    direction = 'right'
+    
+    let focusedTopImgWidth = getTopImgWidth(counterTop)
+    let focusedBottomImgWidth = getBottomImgWidth(counterBottom)
 
         if(counterTop === 1 && counterBottom > 1 ){
             counterTop = topImgCount
@@ -102,7 +102,9 @@ function addImages(){
         imageSliderBottom.append($('.bottomSlider img:first-child'))
     }
     slideToBegining() 
-    rightBtn.removeAttr("disabled")
-    leftBtn.removeAttr("disabled")
+    setTimeout(()=>{
+        rightBtn.removeAttr("disabled")
+        leftBtn.removeAttr("disabled")
+    })
+    
 }
-
