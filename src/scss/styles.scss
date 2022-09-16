@@ -13,7 +13,7 @@
 	margin: 0px;
 	--blue-color: #134880;
 	--gray-color: #DDDDDD;
-	--background-color: #F2F2F2;
+	--background-color: #FFFFFF;
 	--text-color: #484A4C;
 }
 
@@ -36,6 +36,7 @@ button {
 	height: 60px;
 	width: 60px;
 	border: 1px solid var(--gray-color);
+	background-color: var(--background-color);
 	border-radius: 5px;
 	background-position: center;
 	background-repeat: no-repeat;
