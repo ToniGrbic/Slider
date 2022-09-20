@@ -1,3 +1,7 @@
+$blue-color: #134880;
+$gray-color: #DDDDDD;
+$background-color: #FFFFFF;
+
 @font-face {
 	font-family: SourceSansPro;
 	src: url('../assets/SourceSansPro-Regular.woff');
@@ -11,15 +15,11 @@
 * {
 	padding: 0px;
 	margin: 0px;
-	--blue-color: #134880;
-	--gray-color: #DDDDDD;
-	--background-color: #FFFFFF;
-	--text-color: #484A4C;
 }
 
 h1 {
-	color: var(--blue-color);
-	line-height: 37.5px;
+	color: $blue-color;
+	line-height: 32.5px;
 	letter-spacing: -0.2px;
 	margin-bottom: 20px;
 	font-size:32px;
@@ -28,20 +28,34 @@ h1 {
 body {
 	width: 100vw;
 	height: 100vh;
-	background: var(--background-color);
+	background: $background-color;
     overflow: hidden;
 }
 
 button {
 	height: 60px;
 	width: 60px;
-	border: 1px solid var(--gray-color);
-	background-color: var(--background-color);
+	border: 1px solid $gray-color;
+	background-color: $background-color;
 	border-radius: 5px;
 	background-position: center;
 	background-repeat: no-repeat;
 	&:hover {
-		border: 1px solid var(--blue-color);
+		border: 1px solid $blue-color;
 		cursor: pointer;
+	}
+}
+
+#leftBtn {
+	background-image: url('../assets/arrow-gray-left.png');
+	&:hover {
+		background-image: url('../assets/arrow-blue-left.png');
+	}
+}
+
+#rightBtn {
+	background-image: url('../assets/arrow-gray-right.png');
+	&:hover {
+		background-image: url('../assets/arrow-blue-right.png');
 	}
 }

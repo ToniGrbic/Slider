@@ -17,17 +17,17 @@ let counterBottom = bottomImgCount
   with this we can check do we have to prepend or append images */ 
 let direction 
 
-const slide = (slideWidthTop, slideWidthBottom)=>{
-    imageSliderTop.css('transform', `translateX(${slideWidthTop}px)`)
-    imageSliderBottom.css('transform', `translateX(${slideWidthBottom}px)`)
-}
-
 const getTopImgWidth = (counter)=>{
     return $(`#img-top-${counter}`).outerWidth() 
 }
 
 const getBottomImgWidth = (counter)=>{
     return $(`#img-bottom-${counter}`).outerWidth() 
+}
+
+const slide = (slideWidthTop, slideWidthBottom)=>{
+    imageSliderTop.css('transform', `translateX(${slideWidthTop}px)`)
+    imageSliderBottom.css('transform', `translateX(${slideWidthBottom}px)`)
 }
 
 const slideToBegining = ()=>{
